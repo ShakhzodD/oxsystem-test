@@ -12,7 +12,8 @@ api.defaults.params["_f"] = "json";
 // api.defaults.params["_l"] = store.getState().system.currentLangCode;
 api.defaults.headers.common["Accept"] = "application/json";
 api.defaults.headers.common["Cache-Control"] = "no-cache";
-api.defaults.headers.common["Content-Type"] = "application/json; charset=utf-8";
+api.defaults.headers.common["Content-Type"] =
+  "application/x-www-form-urlencoded";
 
 api.interceptors.request.use(
   configs => {

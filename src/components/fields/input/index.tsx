@@ -45,10 +45,6 @@ const input = (props: Props) => {
             placeholder:font-medium 
             placeholder:tracking-tighter 
           `}
-          // dark:bg-gray-800
-          // dark:border-[${touched[name] && errors[name] ? 'red' : 'transparent'}]
-          // dark:placeholder:text-[#787993]
-          // dark:text-[#cccccc]
           status={touched[name] && errors[name] ? "error" : ""}
           onChange={e => {
             setFieldValue(name, e.target.value);
