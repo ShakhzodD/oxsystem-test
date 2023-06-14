@@ -13,11 +13,7 @@ export interface IMenu {
 const menu: IMenu[] = [
   {
     key: "/",
-    label: "Users",
-  },
-  {
-    key: "/books",
-    label: "Books",
+    label: "Fruits",
   },
 ];
 

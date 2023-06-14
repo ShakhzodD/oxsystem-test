@@ -1,20 +1,12 @@
-import { Layout } from "components";
-import {
-  createBrowserRouter,
-  Route,
-  RouterProvider,
-  Routes,
-} from "react-router-dom";
-import { lazy, Suspense } from "react";
 import { Spin } from "antd";
-import { useStore } from "store";
+import { Layout } from "components";
 import { get } from "lodash";
+import { Suspense, lazy } from "react";
+import { Route, Routes } from "react-router-dom";
+import { useStore } from "store";
 
 const Login = lazy(() => import("pages/auth"));
-const Users = lazy(() => import("pages/users"));
-const Books = lazy(() => import("pages/books"));
-const BooksCreate = lazy(() => import("pages/books/create"));
-const BooksUpdate = lazy(() => import("pages/books/update"));
+const Fruits = lazy(() => import("pages/fruits"));
 function App() {
   const { auth } = useStore();
   return (
@@ -32,7 +24,7 @@ function App() {
                     </div>
                   }
                 >
-                  <Users />
+                  <Fruits />
                 </Suspense>
               }
             />

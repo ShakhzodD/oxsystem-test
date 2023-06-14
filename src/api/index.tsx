@@ -1,6 +1,7 @@
 import axios from "axios";
-// import config from 'config'
-// import { storage } from 'services'
+// import { store } from "store";
+// import config from "config";
+// import storage from "services/storage";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_APP_API,
@@ -12,17 +13,19 @@ api.defaults.params["_f"] = "json";
 // api.defaults.params["_l"] = store.getState().system.currentLangCode;
 api.defaults.headers.common["Accept"] = "application/json";
 api.defaults.headers.common["Cache-Control"] = "no-cache";
-api.defaults.headers.common["Content-Type"] =
-  "application/x-www-form-urlencoded";
+api.defaults.headers.common["Content-Type"] = "application/json; charset=utf-8";
 
 api.interceptors.request.use(
   configs => {
-    console.log(configs);
-    const token = window.localStorage.getItem("token");
-    configs.headers.Authorization = `Bearer ${token}`;
+    // if (storage.get("token")) {
+    configs.headers.Authorization = `Bearer ${window.localStorage.getItem(
+      "token"
+    )}`;
+    // }
     return configs;
   },
   error => {
+    // console.log("SERVICES REQUEST ERROR", error?.request);
     return Promise.reject(error);
   }
 );
